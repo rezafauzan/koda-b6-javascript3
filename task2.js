@@ -71,10 +71,23 @@ console.log()
 let kata = "Universe"
 console.log("String \n")
 
+// Method string.concat() merupakan method untuk menggabungkan string dengan string yang ada di parameter  
 console.log("Method String concat()")
 console.log(kata.concat(" Dystopia") + "\n")
 
+// Method string.includes() merupakan method untuk mengecek apakah string mengandung string yang ada di parameter
 console.log("Method String includes()")
-console.log((kata.concat(" Dystopia")).includes("Universe")? "Kalimat menggandung kata \"Universe\"" : "Kalimat tidak menggandung kata \"Universe\"" + "\n")
+console.log((kata.concat(" Dystopia")).includes("Universe")? "Kalimat menggandung kata \"Universe\" \n" : "Kalimat tidak menggandung kata \"Universe\"\n" + "\n")
 
+// Method string.repeat() method ini mengembalikan string baru yang dicetak berulang sebanyak parameter
+console.log("Method String repeat()")
+console.log((kata.concat(" Dystopia")).repeat(10) + "\n")
+
+// Method string.replace() merupakan method untuk mengganti kata dari string dengan keyword di parameter pertama diganti dengan string di parameter kedua
+console.log("Method String replace()")
+console.log((kata.concat(" Dystopia")).replace("Dystopia", "Human World") + "\n")
+
+// Method string.substring() merupakan method untuk mengembalikan char dari string berdasar index awal dan index akhir
+console.log("Method String substring()")
+console.log((kata.concat(" Dystopia")).substring(4,6) + "\n")
 
