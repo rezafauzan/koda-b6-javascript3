@@ -9,7 +9,7 @@ function countHasil(array = [], kata) {
 function searchStudents(kata = "", countResults) {
 
     students.forEach((item, index) => {
-        if(item.includes(kata) === true){
+        if(item.toLowerCase().includes(kata.toLowerCase()) === true){
             choosen.push(item)
         }
     })
