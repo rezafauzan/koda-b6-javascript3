@@ -65,3 +65,16 @@ function gakabur(kata){
 
 console.log(gakabur("it%27s%20a%20good%20day%20to%20start%20learn%20%3CHTML%205%3E"))
 console.log()
+
+// Built-in Method
+// String
+let kata = "Universe"
+console.log("String \n")
+
+console.log("Method String concat()")
+console.log(kata.concat(" Dystopia") + "\n")
+
+console.log("Method String includes()")
+console.log((kata.concat(" Dystopia")).includes("Universe")? "Kalimat menggandung kata \"Universe\"" : "Kalimat tidak menggandung kata \"Universe\"" + "\n")
+
+
