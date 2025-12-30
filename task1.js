@@ -17,9 +17,9 @@ function pengurutArray(array) {
 }
 
 const nilaiTerurut = pengurutArray(nilai)
-console.log(nilaiTerurut)
+console.log(`Hasil dari pengurutan array dengan function pengurutArray() ${nilaiTerurut}`)
 
 // Versi builtIn
 const nilai1 = [60, 40, 70, 10, 90, 80]
 nilai1.sort()
-console.log(nilai1)
+console.log(`Hasil dari pengurutan array dengan built-in function sort() ${nilai1}`)
