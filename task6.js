@@ -39,15 +39,19 @@ const pesanMakanan = (data) => {
                 if(orang){
                     console.log(`Menunggu antrian... antrian ke ${antrian + 1}`)
                     if (typeof orang.nama !== "string") {
-                        reject("Nama yang diberikan tidak valid")
+                        console.log("Nama yang diberikan tidak valid antrian tidak diproses")
+                        antrian += 1
+                        antri()
                     } 
                     else if (orang.nama.length < 1) {
-                        console.log("\nNama tidak boleh kosong\n")
+                        console.log("\nNama tidak boleh kosong antrian tidak diproses\n")
                         antrian += 1
                         antri()
                     } 
                     else if (typeof orang.wait !== "number") {
-                        reject("Waktu tunggu harus berupa angka")
+                        console.log("Waktu tunggu harus berupa angka antrian tidak diproses")
+                        antrian += 1
+                        antri()
                     } else {
                         setTimeout(
                             () => {
