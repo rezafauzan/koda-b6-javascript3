@@ -1,5 +1,5 @@
 
-function keLowercase(str){
+function keLowercase(str) {
     const kamus = {
         A: "a",
         B: "b",
@@ -30,9 +30,9 @@ function keLowercase(str){
     }
     let kataBaru = ''
     for (let i = 0; i < str.length; i++) {
-        if(kamus[str[i]]){
+        if (kamus[str[i]]) {
             kataBaru += kamus[str[i]]
-        }else{
+        } else {
             kataBaru += str[i]
         }
     }
@@ -57,8 +57,31 @@ hasilFetch.then(
                         email.push(keLowercase(user.email))
                     }
                 )
+                console.log("Hasil Fetch Menggunakan .then().catch()")
                 console.log(email)
+                console.log("===================\n\n")
             }
         )
     }
 )
+
+async function ambilData(url) {
+    let surel = []
+    try {
+        let hasilRaw = await fetch(url)
+        let hasilJson = await hasilRaw.json()
+        hasilJson.forEach(
+            user => {
+                surel.push(user.email.toLowerCase())
+            }
+        )
+        console.log("Hasil Fetch Menggunakan async await")
+        console.log(surel)
+        console.log("===================\n\n")
+    }
+    catch (e) {
+        console.log(e)
+    }
+}
+
+ambilData(url)
