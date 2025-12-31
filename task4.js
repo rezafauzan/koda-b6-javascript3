@@ -35,10 +35,10 @@ const data = [
 // output info menunggu antrian
 
 function pesanMakanan(nama,waktu){
-    console.log(`\n****Halo ${nama} silahkan untuk Menunggu antriannya ya selama ${waktu} detik****\n`)
+    console.log(`\n====Halo ${nama} silahkan untuk Menunggu antriannya ya selama ${waktu} detik====\n`)
     setTimeout(
         ()=>{
-            console.log(`\n****Halo ${nama} pesananmu sudah siap! silahkan untuk menuju pengambilan****\n`)
+            console.log(`\n====Halo ${nama} pesananmu sudah siap! silahkan untuk menuju pengambilan====\n`)
         },
         waktu * 1000
     )
