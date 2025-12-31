@@ -2,31 +2,11 @@
 const data = [
     {
         nama: "Juli",
-        wait: 4,
+        wait: 5,
     },
     {
         nama: "Julaini",
-        wait: 7,
-    },
-    {
-        nama: "Julian",
-        wait: 9,
-    },
-    {
-        nama: "Julianti",
         wait: 4,
-    },
-    {
-        nama: "Juliana",
-        wait: 6,
-    },
-    {
-        nama: "Julianto",
-        wait: 9,
-    },
-    {
-        nama: "alJuli",
-        wait: 9,
     }
 ]
 // buat program antri sesuai waktu tunggu nya
@@ -34,18 +14,17 @@ const data = [
 // setelah waktu tunggu buat notif pesanan punya nama sudah selesai
 // output info menunggu antrian
 
+let antrian = 0
 function pesanMakanan(nama,waktu){
-    console.log(`\n====Halo ${nama} silahkan untuk Menunggu antriannya ya selama ${waktu} detik====\n`)
+    console.log(`Menunggu antrian...`)
     setTimeout(
         ()=>{
             console.log(`\n====Halo ${nama} pesananmu sudah siap! silahkan untuk menuju pengambilan====\n`)
+            antrian += 1
+            pesanMakanan(data[antrian].nama, data[antrian].wait)
         },
         waktu * 1000
     )
 }
 
-data.forEach(
-    (pemesan) => {
-        pesanMakanan(pemesan.nama,pemesan.wait)
-    }
-)
+pesanMakanan(data[antrian].nama, data[antrian].wait)
