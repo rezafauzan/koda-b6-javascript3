@@ -40,26 +40,10 @@ function antri(data){
 
 
 antri(data).then((success)=>{console.log(success)})
-function antri(data){
-    let antrian = 0
-    function mulaiAntri(orang){
-        return new Promise(
-            (resolve) => {
-                let orang = data[antrian]
-                if(orang){
-                    setTimeout(
-                        ()=>{
-                            console.log(orang.name)
-                            antrian += 1
-                            resolve(mulaiAntri())
-                        },
-                        orang.time)
-                }
-            }
-        )
-    }
-    return mulaiAntri()
+
+async function tampilNama(){
+    const hasil = await antri(data)
+    console.log(hasil)
 }
 
-
-antri(data).then((success)=>{console.log(success)})
+tampilNama()
