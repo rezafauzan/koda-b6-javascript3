@@ -7,6 +7,26 @@ const data = [
     {
         nama: "Julaini",
         wait: 4,
+    },
+    {
+        nama: "Julian",
+        wait: 9,
+    },
+    {
+        nama: "Julianti",
+        wait: 4,
+    },
+    {
+        nama: "Juliana",
+        wait: 6,
+    },
+    {
+        nama: "Julianto",
+        wait: 9,
+    },
+    {
+        nama: "alJuli",
+        wait: 9,
     }
 ]
 // buat program antri sesuai waktu tunggu nya
@@ -21,7 +41,10 @@ function pesanMakanan(nama,waktu){
         ()=>{
             console.log(`\n====Halo ${nama} pesananmu sudah siap! silahkan untuk menuju pengambilan====\n`)
             antrian += 1
-            pesanMakanan(data[antrian].nama, data[antrian].wait)
+            if(antrian < data.length){
+                // console.log(antrian)
+                pesanMakanan(data[antrian].nama, data[antrian].wait)
+            }
         },
         waktu * 1000
     )
