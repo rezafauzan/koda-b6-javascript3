@@ -25,44 +25,47 @@ const data = [
         wait: 2,
     },
     {
-        nama: "Samsul",
+        nama: "",
         wait: 1,
     }
 ]
-let antrian = 0
 
-const pesanMakanan = (nama, waktu) => {
-    return new Promise(
-        (resolve, reject) => {
-            if (typeof nama !== "string") {
-                reject("Nama yang diberikan tidak valid")
-            } else if (typeof waktu !== "number") {
-                reject("Waktu tunggu harus berupa angka")
-            } else {
-                console.log(`Menunggu antrian...`)
-                setTimeout(
-                    () => {
-                        console.log(`\n==== Halo ${data[antrian].nama} pesananmu sudah siap! silahkan untuk menuju pengambilan ====\n`)
-                        antrian += 1
-                        if(antrian < data.length){
-                            pesanMakanan(data[antrian].nama, data[antrian].wait)
-                        }else{
-                            resolve("Antrian Selesai")
-                        }
-                    },
-                    waktu * 1000
-                )
+const pesanMakanan = (data) => {
+    let antrian = 0
+    function antri(){
+        return new Promise(
+            (resolve, reject) => {
+                let orang = data[antrian]
+                if(orang){
+                    console.log(`Menunggu antrian... antrian ke ${antrian}`)
+                    if (typeof orang.nama !== "string") {
+                        reject("Nama yang diberikan tidak valid")
+                    } 
+                    else if (orang.nama.length < 1) {
+                        reject("Nama tidak boleh kosong")
+                    } 
+                    else if (typeof orang.wait !== "number") {
+                        reject("Waktu tunggu harus berupa angka")
+                    } else {
+                        setTimeout(
+                            () => {
+                                console.log(`\n==== Halo ${orang.nama} pesananmu sudah siap! silahkan untuk menuju pengambilan ====\n`)
+                                antrian += 1
+                                if(antrian < data.length){
+                                    resolve(antri())
+                                }
+                            },
+                            orang.wait * 1000
+                        )
+                    }
+                }else{
+                    reject("antrian selesai")
+                }
             }
-        }
-    )
+        )
+    }
+    return antri()
 }
 
 
-pesanMakanan(data[antrian].nama, data[antrian].wait)
-.then(
-    (val) => { console.log("OK")
-        console.log(val)}
-)
-.catch(
-    (e) => {console.log(e)}
-)
+pesanMakanan(data).then().catch((e) => {console.log(e)})
