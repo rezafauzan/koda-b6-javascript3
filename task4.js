@@ -35,7 +35,7 @@ const data = [
 // output info menunggu antrian
 
 let antrian = 0
-function pesanMakanan(nama,waktu){
+function pesanMakanan(nama,waktu,callback){
     console.log(`Menunggu antrian...`)
     setTimeout(
         ()=>{
@@ -43,11 +43,11 @@ function pesanMakanan(nama,waktu){
             antrian += 1
             if(antrian < data.length){
                 // console.log(antrian)
-                pesanMakanan(data[antrian].nama, data[antrian].wait)
+                callback(data[antrian].nama, data[antrian].wait, callback)
             }
         },
         waktu * 1000
     )
 }
 
-pesanMakanan(data[antrian].nama, data[antrian].wait)
+pesanMakanan(data[antrian].nama, data[antrian].wait,pesanMakanan)
